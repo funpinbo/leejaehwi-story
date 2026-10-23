@@ -1,4 +1,0 @@
-numpy>=1.26
-langgraph>=0.2    # 04 LangGraph 에이전트
-pydantic>=2.6
-python-docx>=1.1  # 06 문서 AGENT

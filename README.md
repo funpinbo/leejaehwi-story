@@ -10,8 +10,7 @@
 상황(Context) → 문제(Problem) → 시도와 실패(Try) → 해결(Solution) → 결과(Result) → 배운 점(Lesson)
 ```
 
-각 경험 폴더에는 **경험 문서(`README.md`)** 와 핵심 아이디어를 재현한 **예제 코드**가 함께 있습니다.
-예제 코드는 회사 코드·실데이터가 아니라, 제가 내린 설계 판단을 최소 단위로 다시 구현한 것입니다.
+각 프로젝트는 **프로젝트 문서(`docs/`)** 와 **경험 문서**로 구성됩니다.
 
 ---
 
@@ -89,14 +88,5 @@ leejaehwi-story/
     │   ├── 00-overview.md             ← 배경 · 문제 · 성과 · 회고
     │   └── 01-architecture.md         ← 아키텍처 (09는 시스템 · 데이터 · 오케스트레이션 등 9편)
     └── {번호}_{경험}/
-        ├── README.md                  ← 경험 문서 (문제 → 해결 → 배운 점)
-        └── *.py                       ← 핵심 아이디어 재현 예제 코드
-```
-
-예제 코드는 대부분 표준 라이브러리 또는 `numpy`, `pydantic`, `python-docx` 정도만으로 실행됩니다.
-필요한 패키지는 [`requirements.txt`](./requirements.txt)에 있습니다.
-
-```bash
-pip install -r requirements.txt
-python 05_AI_하이브리드_퀀트트레이딩/02_WebSocket_단일공유연결/shared_websocket.py
+        └── README.md                  ← 경험 문서 (문제 → 해결 → 배운 점)
 ```

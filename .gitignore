@@ -1,5 +1,1 @@
-__pycache__/
-*.pyc
-.venv/
-# 예제 실행 시 생성되는 Word 파일
-*.docx
+.DS_Store
