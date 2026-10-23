@@ -65,7 +65,3 @@ stateDiagram-v2
 ```bash
 python artifact_lifecycle.py
 ```
-
-## 🎤 면접에서 이렇게 말한다
-
-> "서비스마다 사내 파일 서버 경로나 테이블을 직접 알던 구조를 artifact:// 논리 주소로 바꾸는 Resolver를 설계했습니다. 업로드는 검증과 commit을 거쳐 READY가 되어야만 보이고, latest 전환은 같은 트랜잭션이라 실패해도 이전 버전이 유지됩니다. 권한이 없으면 존재 자체를 404로 숨기고, 범위나 소유자는 요청 파라미터가 아니라 호출자 identity로 판단합니다."

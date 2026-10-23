@@ -62,7 +62,3 @@ Pydantic으로 Block 스키마를 정의하고, **합성 규격 텍스트**(실�
 pip install pydantic
 python block_schema.py
 ```
-
-## 🎤 면접에서 이렇게 말한다
-
-> "규격 문서를 Document, 문단, Group, Block 4계층으로 나눴고, Block에는 원문과 정규화 텍스트를 분리해 두고 confidence와 requires_review 필드를 넣었습니다. LLM 추출 결과를 그대로 믿지 않고 사람 검토 루프를 설계 단계부터 전제한 것이고, sources 필드로 원본 PDF 영역까지 역추적할 수 있게 했습니다."

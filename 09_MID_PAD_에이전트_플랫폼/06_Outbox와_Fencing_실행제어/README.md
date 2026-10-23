@@ -65,7 +65,3 @@ SQLite로 Control의 핵심 동작을 재현합니다.
 ```bash
 python outbox_fencing.py
 ```
-
-## 🎤 면접에서 이렇게 말한다
-
-> "서비스 간 호출을 Control, Worker, Resolver로 나누는 플랫폼을 설계했습니다. 같은 요청 ID는 재실행하지 않고, 상태 변경과 이벤트는 같은 트랜잭션에 기록하는 outbox 패턴을 썼고, 타임아웃 뒤 늦게 도착한 결과는 claim epoch로 거부합니다. 재시도는 실패한 step만 하고, Kafka는 아직 Postgres outbox로 충분하다고 판단해 도입하지 않았습니다."

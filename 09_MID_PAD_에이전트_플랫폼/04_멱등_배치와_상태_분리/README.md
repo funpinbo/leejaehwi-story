@@ -68,7 +68,3 @@ python nas_scan_state.py --bug  # 사고 재현
    /MID/spec_b.pdf    status=REGISTERED   rag_status=EMBEDDED  RAG청크=없음
 정합성 점검: ⚠ 원장은 정상인데 RAG에 없음 → ['/MID/spec_b.pdf']
 ```
-
-## 🎤 면접에서 이렇게 말한다
-
-> "파일 원장 상태와 RAG 반영 상태를 분리했는데, 삭제됐던 파일을 복원할 때 RAG 상태를 다시 대기로 돌리지 않아서 수백 건이 에러 없이 임베딩에서 빠진 적이 있습니다. 상태를 나눌 때는 상태 사이의 전이 규칙까지 정해야 한다는 걸 배웠고, 복원 시 연계 상태를 리셋하는 규칙과 원장-RAG 정합성 점검을 추가했습니다."

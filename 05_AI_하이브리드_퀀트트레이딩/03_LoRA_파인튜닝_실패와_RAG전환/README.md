@@ -66,7 +66,3 @@
 pip install pydantic numpy
 python fewshot_rag.py
 ```
-
-## 🎤 면접에서 이렇게 말한다
-
-> "3주치 데이터로 LoRA 파인튜닝을 했더니 JSON 형식을 못 지켜 파싱 성공률이 20% 미만이었습니다. 파인튜닝 없는 KANANA를 같은 조건으로 비교하니 90% 이상이 나와서, 소량 데이터 LoRA가 베이스 모델의 능력을 오히려 해친다고 판단했고, 학습 대신 과거 판단 이력을 few-shot으로 넣는 RAG로 전환했습니다."
