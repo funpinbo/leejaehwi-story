@@ -69,3 +69,7 @@ flowchart TB
 - 문서 간 참조와 Revision이 핵심인 도메인에서는 **Vector Search + Metadata + Graph + Revision + Source Trace**를 함께 결합해야 합니다.
 - 스키마를 처음부터 완성하려 하지 않고 **실제 데이터로 돌려보며 v3 → v4로 진화**시켰습니다.
 - [06. 문서 AGENT](../06_MID_문서형식유지_작성AGENT)의 "Content / Layout 분리" 통찰이 "Atomic Block / Graph" 구조로 확장된 프로젝트입니다.
+
+## ➡️ 이후
+
+이 파이프라인은 [09. PAD 에이전트 플랫폼](../09_MID_PAD_에이전트_플랫폼)에서 **규격 PDF → OCR → 지식그래프 → Block 구조화**와 **승인된 규격 관계만 판정에 쓰는 규칙 조회**로 발전했습니다.

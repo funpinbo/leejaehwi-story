@@ -28,6 +28,7 @@
 | 06 | [MID · 문서 형식 유지 작성 AGENT](./06_MID_문서형식유지_작성AGENT) | 2026.07~ · 단독 | Content/Layout 분리, docx 템플릿 | 실제 PAD·계약서 양식 보존 |
 | 07 | [MID · ECSS 규격 그래프DB 파이프라인](./07_MID_ECSS규격_그래프DB_파이프라인) | 2026.07~ · 단독 | Atomic Block, 스키마 진화, Graph RAG | 388 Block 추출, 641 canonical record |
 | 08 | [MID · 사내 프롬프트 엔지니어링 교육](./08_MID_사내_프롬프트엔지니어링_교육) | 2026 · 단독 기획·발표 | CoT, ReAct, MCP, Skill | 전 직원 대상 세미나 진행 |
+| 09 | [MID · PAD 에이전트 플랫폼](./09_MID_PAD_에이전트_플랫폼) | 2026.09~ · 1인 개발 (AI 코딩 에이전트 협업) | 결정적 단계 파이프라인, Outbox·Fencing, Artifact Resolver, GitOps | 단일 에이전트 → 다중 서비스 운영 플랫폼으로 확장 |
 
 ---
 
@@ -45,6 +46,8 @@ flowchart LR
     E --> G[06 문서 AGENT<br/>생성과 형식의 분리]
     G --> H[07 ECSS 그래프DB<br/>문서를 구조로]
     G --> I[08 사내 교육<br/>조직에 AI를 전파]
+    G --> J[09 PAD 에이전트 플랫폼<br/>다중 서비스 운영]
+    H --> J
 ```
 
 ---
@@ -59,6 +62,11 @@ flowchart LR
 | **LLM 출력을 그대로 믿지 않는다** | 04 Hallucination 회고 | 07 `confidence`·`requires_review` 스키마 |
 | **근거를 추적할 수 있게 저장한다** | 04 FAISS + PostgreSQL 듀얼 스토리지 | 07 `source_region_id` 역추적 |
 | **외부 시스템의 제약을 먼저 확인한다** | 05 KIS WebSocket 단일 연결 제약 | 05 502 토큰 만료 대응 |
+| **LLM은 판정하지 않고, 텍스트를 다시 쓰지 않는다** | 06 Content / Layout 분리 | 09 결정적 단계 파이프라인, 경계만 판단하는 청킹 |
+| **재시도는 상태를 바꿀 때만, 실패한 것만** | 05 502 토큰 강제 갱신 | 09 실패 step만 재시도, epoch fencing |
+| **사고는 규칙과 검사기로 남긴다** | 09 타임존 · 라벨 누락 사고 | 09 CronJob 표준 린터 |
+| **큰 전환은 관찰부터, 안전망은 따로 걷어낸다** | 09 Control Plane shadow 모드 | 09 strict 전환 운영 사고 → 회귀 테스트 |
+| **"없음"을 가짜 값으로 표현하지 않는다** | 09 가짜 유사도 1.0 | 09 턴 시작 state 리셋 |
 
 ---
 
@@ -69,9 +77,11 @@ flowchart LR
 | Language | Python 3.10+ (asyncio, mypy strict, Pydantic v2) |
 | LLM / Agent | LangGraph, ReAct, Ollama(KANANA 1.5 8B), Gemini 2.5 Flash, qwen 계열, GPT-OSS-120B, LoRA |
 | Retrieval | FAISS, BM25, Elasticsearch(Nori), RRF, Embedding 클러스터링 |
-| Data / DB | PostgreSQL, TimescaleDB, Apache AGE(Graph), JSON Schema |
+| Data / DB | PostgreSQL(스키마 격리), TimescaleDB, pgvector, Apache AGE(Graph), Redis, JSON Schema |
 | ML / DL | PyTorch, LSTM-Autoencoder, ACGAN, CatBoost, PatchTST, BSTS(orbit-ml) |
-| Infra / API | FastAPI, APScheduler, WebSocket, KIS / Naver / FRED API |
+| Infra / API | FastAPI, APScheduler, WebSocket, KIS / Naver / FRED API, Kubernetes, Jenkins, ArgoCD(GitOps), Sealed Secrets |
+| Model Serving | vLLM 기반 로컬 모델 서빙 (오픈 웨이트 LLM · VLM · OCR · 임베딩 모델) |
+| Observability | Loki, Prometheus, Grafana Alloy, Arize Phoenix(OTel) |
 | Docs | python-docx, Jinja 스타일 템플릿, OnlyOffice |
 
 ---
