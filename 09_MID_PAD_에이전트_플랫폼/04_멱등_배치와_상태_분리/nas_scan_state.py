@@ -106,7 +106,7 @@ def main() -> None:
     for a in p.assets.values():
         print(f"   {a.path:<18} status={a.status:<12} rag_status={a.rag_status:<9} RAG청크={'있음' if a.path in p.rag else '없음'}")
     stranded = p.consistency_check()
-    print(f"\n정합성 점검: {'⚠ 원장은 정상인데 RAG에 없음 → ' + str(stranded) if stranded else '이상 없음 ✅'}")
+    print(f"\n정합성 점검: {'[!] 원장은 정상인데 RAG에 없음 → ' + str(stranded) if stranded else '이상 없음'}")
 
 
 if __name__ == "__main__":

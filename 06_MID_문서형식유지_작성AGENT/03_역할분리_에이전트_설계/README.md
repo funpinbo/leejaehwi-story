@@ -41,7 +41,7 @@ Report Agent ──(값+근거)──▶ Layout Agent ──▶ Verification Age
 
 ---
 
-## 🧪 예제 코드 — `role_agents.py`
+## 예제 코드 — `role_agents.py`
 
 Report Agent가 오래된 Revision을 적은 상황을 재현하고, Layout / Verification Agent가 이를 잡아 수정하는 흐름과, 최종 값마다 붙은 근거를 출력합니다. (규격 번호 · Revision은 예시 값)
 

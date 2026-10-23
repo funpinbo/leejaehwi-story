@@ -109,7 +109,7 @@ def main() -> None:
     issues = diff(snapshot(template), snapshot(regenerated))
     print(f"레이아웃 붕괴 {len(issues)}건 검출\n")
     for issue in issues:
-        print(" ❌", issue)
+        print(" [X]", issue)
 
 
 if __name__ == "__main__":

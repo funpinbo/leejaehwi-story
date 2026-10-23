@@ -73,7 +73,7 @@ def run(mode: str) -> None:
             a.call(service, path)
         except RouteNotInCatalog as e:
             errors += 1
-            a.events.append(f"❌ {e}")
+            a.events.append(f"[X] {e}")
     print(f"[{mode}] 요청 {len(TRAFFIC)}건, 오류 {errors}건")
     for ev in a.events:
         print("    ", ev)
@@ -93,7 +93,7 @@ def main() -> None:
     CATALOG["knowledge.blocks.search"] = ("analyze-svc", "blocks_search")
     ROUTES[("analyze-svc", "/v1/blocks/search")] = "knowledge.blocks.search"
     test_blocks_search_routes_through_control()
-    print("   회귀 테스트 통과 ✅")
+    print("   회귀 테스트 통과")
     run("control")
 
     print("\n④ 선언형 intent — 호출자는 서비스·경로를 모른다")

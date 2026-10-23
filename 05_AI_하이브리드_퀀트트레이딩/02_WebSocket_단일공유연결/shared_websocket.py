@@ -87,7 +87,7 @@ class SharedWebSocket:
                 code, price = await self.conn.recv()
             except ConnectionClosed as e:
                 self.reconnects += 1
-                print(f"   ⚡ {e} → 재연결 #{self.reconnects}")
+                print(f"   ! {e} → 재연결 #{self.reconnects}")
                 await self._connect()
                 continue
             received += 1
@@ -104,7 +104,7 @@ async def per_symbol_connections(server: FakeKisServer, codes: list[str]) -> Non
             await conn.subscribe(code)
             print(f"   {code}: 연결 성공")
         except ConnectionError as e:
-            print(f"   {code}: ❌ {e}")
+            print(f"   {code}: [X] {e}")
     server.active = 0
 
 

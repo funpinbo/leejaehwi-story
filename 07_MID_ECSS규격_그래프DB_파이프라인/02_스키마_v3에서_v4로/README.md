@@ -54,7 +54,7 @@ v4: Group(LIST)
 
 ---
 
-## 🧪 예제 코드 — `migrate_v3_to_v4.py`
+## 예제 코드 — `migrate_v3_to_v4.py`
 
 합성 v3 Block들을 v4로 마이그레이션합니다. 목록을 그룹으로 묶고, 리드인을 찾아 `GOVERNS` 관계를 만들고, `normalized_text`에 리드인을 주입하고, `normative_type`을 `derived_fields`로 옮깁니다.
 

@@ -72,7 +72,7 @@ def main() -> None:
         print(f"   answer_meta   = {s['answer_meta']}")
         print(f"   answer_prompt = {s['answer_prompt']!r}\n")
     leaked = s["answer_meta"]["part"] is not None or "[주의]" in s["answer_prompt"]
-    print("두 번째(사내 정책) 턴:", "⚠ 이전 턴의 부품 정보·경고가 새어 나옴" if leaked else "누수 없음 ✅")
+    print("두 번째(사내 정책) 턴:", "[!] 이전 턴의 부품 정보·경고가 새어 나옴" if leaked else "누수 없음")
     print("대화 이력(턴을 넘어 유지되어야 하는 필드):", s["history"])
 
 

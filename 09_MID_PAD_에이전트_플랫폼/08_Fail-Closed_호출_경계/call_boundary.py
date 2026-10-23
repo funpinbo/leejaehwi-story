@@ -36,11 +36,11 @@ def canonical_path(raw: str) -> str:
 def check_endpoint(service: str, method: str, raw_path: str) -> str:
     allowed = ALLOWED.get(service)
     if not allowed:
-        return "✖ ENDPOINT_NOT_ALLOWED (서비스 설정 없음 → fail-closed)"
+        return "[X] ENDPOINT_NOT_ALLOWED (서비스 설정 없음 → fail-closed)"
     path = canonical_path(raw_path)
     if (method, path) not in allowed:
-        return f"✖ ENDPOINT_NOT_ALLOWED (정규화 결과 {path})"
-    return f"✔ 허용 ({path})"
+        return f"[X] ENDPOINT_NOT_ALLOWED (정규화 결과 {path})"
+    return f"[O] 허용 ({path})"
 
 
 # ---------- 2. 계약 digest ----------
@@ -52,26 +52,26 @@ def digest(spec: dict) -> str:
 def check_contract(service: str, action: str, sent_digest: str) -> str:
     spec = APPROVED_SPECS.get((service, action))
     if spec is None:
-        return "✖ ACTION_NOT_APPROVED (fail-closed)"
+        return "[X] ACTION_NOT_APPROVED (fail-closed)"
     local = digest(spec)
-    return "✔ 계약 일치" if sent_digest == local else f"✖ ACTION_CONTRACT_MISMATCH (보냄 {sent_digest} ≠ 로컬 {local})"
+    return "[O] 계약 일치" if sent_digest == local else f"[X] ACTION_CONTRACT_MISMATCH (보냄 {sent_digest} ≠ 로컬 {local})"
 
 
 # ---------- 3. SSRF 가드 ----------
 def check_fetch_url(url: str) -> str:
     parts = urlsplit(url)
     if parts.scheme not in {"http", "https"}:
-        return f"✖ 스킴 {parts.scheme} 거부"
+        return f"[X] 스킴 {parts.scheme} 거부"
     host = (parts.hostname or "").rstrip(".").lower()
     if host == "localhost" or host.endswith(".cluster.local") or host.endswith(".svc"):
-        return f"✖ 내부 호스트 {host} 거부"
+        return f"[X] 내부 호스트 {host} 거부"
     try:
         ip = ipaddress.ip_address(host)
         if ip.is_private or ip.is_loopback or ip.is_link_local or ip.is_reserved:
-            return f"✖ 사설/내부 IP {ip} 거부"
+            return f"[X] 사설/내부 IP {ip} 거부"
     except ValueError:
         pass  # 도메인: 실제 구현은 DNS 해석 결과 IP도 다시 검사한다
-    return "✔ 허용"
+    return "[O] 허용"
 
 
 # ---------- 4. site 필터 ----------
@@ -103,7 +103,7 @@ def main() -> None:
 
     print("\n[4] site 필터 (site=ecss.nl)")
     for h in ["ecss.nl", "docs.ecss.nl", "fakeecss.nl", "ecss.nl.evil.com"]:
-        print(f"   {h:<20} {'✔ 통과' if site_match(h, 'ecss.nl') else '✖ 차단'}")
+        print(f"   {h:<20} {'[O] 통과' if site_match(h, 'ecss.nl') else '[X] 차단'}")
 
 
 if __name__ == "__main__":

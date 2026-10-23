@@ -40,7 +40,7 @@
 
 ---
 
-## 🧪 예제 코드 — `escc_canonicalize.py`
+## 예제 코드 — `escc_canonicalize.py`
 
 합성 Specification List(CSV 문자열)를 canonical record로 정리합니다. 번호 표기 정규화, Issue 이력 병합, `search_text` · `pad` · `graph_hints` 생성까지 포함합니다. (문서 번호 · 제목은 예시)
 

@@ -94,7 +94,7 @@ def main() -> None:
     print("\n=== v4 groups / relations ===")
     print(json.dumps({"groups": v4["groups"], "relations": v4["relations"]}, ensure_ascii=False, indent=2))
     errors = validate(v4)
-    print(f"\n스키마 검증 (schema_version {v4['schema_version']}): {'통과 ✅' if not errors else errors}")
+    print(f"\n스키마 검증 (schema_version {v4['schema_version']}): {'통과' if not errors else errors}")
 
 
 if __name__ == "__main__":

@@ -58,7 +58,7 @@ stateDiagram-v2
 
 ---
 
-## 🧪 예제 코드 — `artifact_lifecycle.py`
+## 예제 코드 — `artifact_lifecycle.py`
 
 업로드 → 검증 → commit → latest 전환, checksum 불일치 실패 시 이전 latest 유지, 권한 없는 조회의 404, 소유자 사칭 거부, 미선언 종류 기본 거부를 인메모리로 재현합니다.
 

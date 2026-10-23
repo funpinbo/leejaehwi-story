@@ -67,7 +67,7 @@ def main() -> None:
     for job in CRONJOBS:
         errs = lint(job)
         total += len(errs)
-        print(f"{'✅' if not errs else '❌'} {job['name']}  [{job['schedule']}]")
+        print(f"{'[O]' if not errs else '[X]'} {job['name']}  [{job['schedule']}]")
         for e in errs:
             print(f"     {e}")
     print(f"\n위반 {total}건")

@@ -47,7 +47,7 @@
 
 ---
 
-## 🧪 예제 코드 — `intraday_react.py`
+## 예제 코드 — `intraday_react.py`
 
 검색 API와 LLM을 대역 함수로 대체해, 병렬 검색과 ReAct 루프(Thought → Action → Observation → decide)를 재현합니다.
 

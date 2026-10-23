@@ -53,7 +53,7 @@
 
 ---
 
-## 🧪 예제 코드 — `nas_scan_state.py`
+## 예제 코드 — `nas_scan_state.py`
 
 가짜 사내 파일 서버에서 파일 생성 → 수정 → 삭제 → 복원을 시간 순서로 재현하고, scan/embed 배치가 두 상태를 어떻게 바꾸는지 보여줍니다.
 `--bug` 옵션을 주면 복원 시 `rag_status`를 리셋하지 않아 **좌초 사고를 재현**하고, 정합성 점검이 이를 잡아냅니다.
@@ -66,5 +66,5 @@ python nas_scan_state.py --bug  # 사고 재현
 ```
 [--bug] 최종 상태
    /MID/spec_b.pdf    status=REGISTERED   rag_status=EMBEDDED  RAG청크=없음
-정합성 점검: ⚠ 원장은 정상인데 RAG에 없음 → ['/MID/spec_b.pdf']
+정합성 점검: [!] 원장은 정상인데 RAG에 없음 → ['/MID/spec_b.pdf']
 ```

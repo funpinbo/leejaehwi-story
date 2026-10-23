@@ -59,7 +59,7 @@ def main() -> None:
         bad = [c for c in claims if not c.grounded]
         print(f"[{name}]\n  {ans}")
         for c in claims:
-            print(f"   {'✅' if c.grounded else '❌'} {c.text}")
+            print(f"   {'[O]' if c.grounded else '[X]'} {c.text}")
         print(f"  → {'통과' if not bad else '재생성 요청: 근거 없는 수치 ' + ', '.join(c.text for c in bad)}\n")
 
 

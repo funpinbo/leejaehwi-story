@@ -26,8 +26,8 @@
 
 ## 3. 현재 상태
 
-- ✅ Block 추출 파이프라인과 스키마 구현 · 반복 개선 중 (v4)
-- 🔄 Graph DB 실제 적재, Revision Verification 자동화, 전체 RAG 파이프라인 통합은 설계 · 진행 중
+- 완료: Block 추출 파이프라인과 스키마 구현 · 반복 개선 중 (v4)
+- 진행 중: Graph DB 실제 적재, Revision Verification 자동화, 전체 RAG 파이프라인 통합은 설계 · 진행 중
 
 ## 4. 회고
 

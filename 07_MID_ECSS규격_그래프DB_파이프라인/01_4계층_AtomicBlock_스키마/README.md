@@ -53,7 +53,7 @@ Block이 다른(하위) 문서의 여러 Block을 참조할 수 있게 해서, �
 
 ---
 
-## 🧪 예제 코드 — `block_schema.py`
+## 예제 코드 — `block_schema.py`
 
 Pydantic으로 Block 스키마를 정의하고, **합성 규격 텍스트**(실제 ECSS 원문이 아님)를 Block으로 분해합니다.
 참조 추출, 신뢰도 산정, `requires_review` 판정, `source_region_id`를 포함한 JSON을 출력합니다.

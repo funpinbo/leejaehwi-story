@@ -41,7 +41,7 @@
 
 ---
 
-## 🧪 예제 코드 — `dual_storage.py`
+## 예제 코드 — `dual_storage.py`
 
 PostgreSQL 대신 **SQLite**, FAISS 대신 **numpy 완전 탐색 인덱스**(IndexFlatIP와 동일한 동작)로 같은 구조를 재현했습니다.
 벡터 검색 → `doc_id` 조인 → 메타데이터 결합 → 질의 로그 저장까지 보여줍니다.

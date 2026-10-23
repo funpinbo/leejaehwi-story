@@ -103,7 +103,7 @@ def main() -> None:
     print(f"{'block_id':<24}{'type':<13}{'conf':>5}  review  refs")
     for b in blocks:
         refs = ", ".join(r.target_doc + (f"§{r.target_clause}" if r.target_clause else "") for r in b.references)
-        print(f"{b.block_id:<24}{b.meaning_type:<13}{b.confidence:>5}  {'⚠ yes' if b.requires_review else '  no'}   {refs}")
+        print(f"{b.block_id:<24}{b.meaning_type:<13}{b.confidence:>5}  {'[!] yes' if b.requires_review else '  no'}   {refs}")
     review = [b for b in blocks if b.requires_review]
     print(f"\n사람 검토 대상 {len(review)}/{len(blocks)}건 — 이것만 보면 된다")
 

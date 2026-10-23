@@ -57,7 +57,7 @@ flowchart LR
 
 ---
 
-## 🧪 예제 코드 — `outbox_fencing.py`
+## 예제 코드 — `outbox_fencing.py`
 
 SQLite로 Control의 핵심 동작을 재현합니다.
 ① 같은 request_id 재전송 → 재실행 안 됨 ② 상태 + 이벤트 한 트랜잭션 ③ 타임아웃 후 재할당된 step에 **옛 Worker 결과가 늦게 도착 → 거부** ④ 실패 step만 재시도 ⑤ outbox 중복 발행 → 구독자가 dedup.

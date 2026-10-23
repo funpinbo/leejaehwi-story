@@ -53,7 +53,7 @@ GET /v1/blocks/search (규격 분석 서비스, 특정 research 경로)
 
 ---
 
-## 🧪 예제 코드 — `staged_migration.py`
+## 예제 코드 — `staged_migration.py`
 
 4단계 모드를 가진 호출 adapter를 만들고, **"아무도 설정하지 않는 옛 파라미터 때문에 카탈로그에서 빠진 라우트"** 를 일부러 넣어 둡니다.
 shadow와 fallback 단계에서는 문제가 보이지 않다가, strict 단계에서 드러나고, 수정 + 회귀 테스트 후 해소되는 흐름을 재현합니다.

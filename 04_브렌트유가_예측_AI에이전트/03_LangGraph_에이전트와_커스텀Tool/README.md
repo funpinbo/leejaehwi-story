@@ -51,7 +51,7 @@ flowchart LR
 
 ---
 
-## 🧪 예제 코드 — `oil_agent_graph.py`
+## 예제 코드 — `oil_agent_graph.py`
 
 실제 LangGraph(`StateGraph`, `add_conditional_edges`)로 그래프를 구성했습니다.
 오프라인으로 실행되도록 **planner 노드의 LLM 판단만 규칙 기반 함수로 대체**했습니다.

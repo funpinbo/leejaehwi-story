@@ -85,9 +85,9 @@ def main() -> None:
     print("\n최종 근거:")
     for e in evidence:
         a = e["applicability"]
-        print(f"  {e['locator']:<20} {a['reason'] if a else '⚠ 적용성 미기록'}")
+        print(f"  {e['locator']:<20} {a['reason'] if a else '[!] 적용성 미기록'}")
     test_applicability_is_attached(evidence)
-    print("\n테스트 통과: 모든 최종 근거에 적용성 판정이 연결됨 ✅")
+    print("\n테스트 통과: 모든 최종 근거에 적용성 판정이 연결됨")
 
 
 if __name__ == "__main__":

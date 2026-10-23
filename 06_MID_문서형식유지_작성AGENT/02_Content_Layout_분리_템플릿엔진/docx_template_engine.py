@@ -147,9 +147,9 @@ def main() -> None:
         print(" | ".join(c.text for c in row.cells))
 
     before, after = set(formats(template)), set(formats(out))
-    print(f"\n형식 속성(스타일·폰트·크기·굵기) 변화: {'없음 ✅' if after <= before else after - before}")
+    print(f"\n형식 속성(스타일·폰트·크기·굵기) 변화: {'없음' if after <= before else after - before}")
     leftover = [p.text for p in iter_paragraphs(doc) if "{{" in p.text]
-    print(f"남은 placeholder: {leftover or '없음 ✅'}")
+    print(f"남은 placeholder: {leftover or '없음'}")
 
     print("\n=== 스키마가 막아주는 잘못된 LLM 출력 ===")
     try:

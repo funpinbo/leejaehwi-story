@@ -95,7 +95,7 @@ def attempt(label: str, fn) -> None:
     try:
         print(f"{label:<44} → {fn()}")
     except HTTPError as e:
-        print(f"{label:<44} → ✖ {e}")
+        print(f"{label:<44} → [X] {e}")
 
 
 def main() -> None:

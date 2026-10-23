@@ -46,7 +46,7 @@
 
 ---
 
-## 🧪 예제 코드 — `call_boundary.py`
+## 예제 코드 — `call_boundary.py`
 
 경로 정규화 + allowlist, 계약 digest 비교, SSRF 가드, site 필터를 표준 라이브러리만으로 구현하고, 위 위협 시나리오 입력을 넣어 각각 차단되는지 확인합니다. (실제 네트워크 요청은 하지 않습니다)
 

@@ -89,7 +89,7 @@ def main() -> None:
     print(f"LLM 정상 응답 {stats['llm_ok']}회 / 잘못된 응답 {stats['llm_bad']}회 / 규칙 폴백 {stats['fallback']}회")
     print(f"청크 길이: {[len(c) for c in chunks]}")
     assert "".join(chunks) == original
-    print('불변 조건 "".join(chunks) == 원문 ✅  (LLM이 텍스트를 바꾼 곳 없음)')
+    print('불변 조건 "".join(chunks) == 원문  (LLM이 텍스트를 바꾼 곳 없음)')
 
 
 if __name__ == "__main__":

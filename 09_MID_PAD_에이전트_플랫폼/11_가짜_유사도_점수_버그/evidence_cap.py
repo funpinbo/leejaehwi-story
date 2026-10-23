@@ -37,8 +37,8 @@ def report(name: str, kept: list[dict]) -> None:
     print(f"[{name}] 남은 근거 {len(kept)}개")
     for ev in kept:
         score = f"{ev['score']:.2f}" if "score" in ev else "없음"
-        print(f"   {ev['id']:<20} score={score:<5} {'★ 핵심' if ev['relevant'] else ''}")
-    print(f"   → 잘린 핵심 근거: {lost or '없음 ✅'}\n")
+        print(f"   {ev['id']:<20} score={score:<5} {'* 핵심' if ev['relevant'] else ''}")
+    print(f"   → 잘린 핵심 근거: {lost or '없음'}\n")
 
 
 if __name__ == "__main__":
