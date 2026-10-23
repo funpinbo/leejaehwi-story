@@ -19,10 +19,6 @@
 
 | # | 프로젝트 | 기간 · 형태 | 핵심 키워드 | 대표 성과 |
 |---|---|---|---|---|
-| 00 | [에이티아이 · 캘리브레이션 자동화](./00_에이티아이_광학장비_현장자동화) | 2024.02~2025.03 · 재직 | 데이터 피팅, 현장 도입 | 캘리브레이션 3h → 1h40m (**-44%**) |
-| 01 | [LSTM 제조장비 이상탐지](./01_LSTM_제조장비_이상탐지) | SKALA · 3일 솔로 | LSTM-AE, 비지도 이상탐지 | 라벨 없는 환경의 탐지 파이프라인 |
-| 02 | [ACGAN 웨이퍼맵 결함 이미지 생성](./02_ACGAN_웨이퍼맵_결함생성) | 독학 · 솔로 | GAN, Mode Collapse | 구조 변경으로 Mode Collapse 해결 |
-| 03 | [Hybrid RAG 핸즈프리 챗봇](./03_HybridRAG_핸즈프리_챗봇) | SKALA · 3일 팀 | BM25 + FAISS + RRF, 마스킹 | 하이브리드 검색 + 기밀 마스킹 담당 |
 | 04 | [브렌트 유가 예측 AI 에이전트](./04_브렌트유가_예측_AI에이전트) | SKALA · 6인 2개월 | LangGraph, Event Study, 듀얼 스토리지 | 방향성 정확도 **약 10%p 개선** |
 | 05 | [AI 하이브리드 퀀트 트레이딩](./05_AI_하이브리드_퀀트트레이딩) | 2026.06~ · 1인 개발 | 3-Layer, 로컬 LLM, ReAct, asyncio | WebSocket 장애 **-90%**, 파싱 성공률 **20% → 90%+** |
 | 06 | [MID · 문서 형식 유지 작성 AGENT](./06_MID_문서형식유지_작성AGENT) | 2026.07~ · 단독 | Content/Layout 분리, docx 템플릿 | 실제 PAD·계약서 양식 보존 |
@@ -38,10 +34,7 @@
 
 ```mermaid
 flowchart LR
-    A[00 캘리브레이션 자동화<br/>반복 업무를 수식으로] --> B[01 LSTM 이상탐지<br/>현장 데이터를 모델로]
-    A --> C[02 ACGAN<br/>도메인 지식으로 생성물 검증]
-    B --> D[03 Hybrid RAG<br/>검색 품질의 기초]
-    D --> E[04 브렌트 유가 에이전트<br/>정형+비정형 결합]
+    E[04 브렌트 유가 에이전트<br/>정형+비정형 결합]
     E --> F[05 퀀트 트레이딩<br/>실시간 운영 시스템으로 확장]
     E --> G[06 문서 AGENT<br/>생성과 형식의 분리]
     G --> H[07 ECSS 그래프DB<br/>문서를 구조로]
@@ -56,8 +49,7 @@ flowchart LR
 
 | 원칙 | 처음 배운 곳 | 다시 적용한 곳 |
 |---|---|---|
-| **기술적 최선보다 실제로 쓰이는 도구** | 00 Excel 피팅 도구 | 08 사내 교육(청중 맞춤 기법 선택) |
-| **같은 방법을 반복하기 전에 원인을 다시 정의한다** | 02 Mode Collapse → ACGAN | 05 LoRA 실패 → RAG 전환, 06 문서 재생성 → 템플릿 |
+| **같은 방법을 반복하기 전에 원인을 다시 정의한다** | 05 LoRA 실패 → RAG 전환 | 06 문서 재생성 → 템플릿 |
 | **결정적인 부분과 비결정적인 부분을 분리한다** | 06 Content / Layout 분리 | 07 원문(atomic) / 정규화(normalized) 분리 |
 | **LLM 출력을 그대로 믿지 않는다** | 04 Hallucination 회고 | 07 `confidence`·`requires_review` 스키마 |
 | **근거를 추적할 수 있게 저장한다** | 04 FAISS + PostgreSQL 듀얼 스토리지 | 07 `source_region_id` 역추적 |
@@ -78,7 +70,7 @@ flowchart LR
 | LLM / Agent | LangGraph, ReAct, Ollama(KANANA 1.5 8B), Gemini 2.5 Flash, qwen 계열, GPT-OSS-120B, LoRA |
 | Retrieval | FAISS, BM25, Elasticsearch(Nori), RRF, Embedding 클러스터링 |
 | Data / DB | PostgreSQL(스키마 격리), TimescaleDB, pgvector, Apache AGE(Graph), Redis, JSON Schema |
-| ML / DL | PyTorch, LSTM-Autoencoder, ACGAN, CatBoost, PatchTST, BSTS(orbit-ml) |
+| ML / DL | CatBoost, PatchTST, BSTS(orbit-ml), LoRA |
 | Infra / API | FastAPI, APScheduler, WebSocket, KIS / Naver / FRED API, Kubernetes, Jenkins, ArgoCD(GitOps), Sealed Secrets |
 | Model Serving | vLLM 기반 로컬 모델 서빙 (오픈 웨이트 LLM · VLM · OCR · 임베딩 모델) |
 | Observability | Loki, Prometheus, Grafana Alloy, Arize Phoenix(OTel) |
@@ -98,7 +90,7 @@ leejaehwi-story/
         └── *.py                       ← 핵심 아이디어 재현 예제 코드
 ```
 
-예제 코드는 대부분 표준 라이브러리 또는 `numpy`, `torch`, `python-docx` 정도만으로 실행됩니다.
+예제 코드는 대부분 표준 라이브러리 또는 `numpy`, `pydantic`, `python-docx` 정도만으로 실행됩니다.
 필요한 패키지는 [`requirements.txt`](./requirements.txt)에 있습니다.
 
 ```bash
