@@ -24,6 +24,7 @@
 | 07 | [ECSS 규격 그래프DB 파이프라인](./07_ECSS규격_그래프DB_파이프라인) | 2026.07~ · 단독 | Atomic Block, 스키마 진화, Graph RAG | 388 Block 추출, 641 canonical record |
 | 08 | [사내 프롬프트 엔지니어링 교육](./08_사내_프롬프트엔지니어링_교육) | 2026 · 단독 기획·발표 | CoT, ReAct, MCP, Skill | 전 직원 대상 세미나 진행 |
 | 09 | [PAD 에이전트 플랫폼](./09_PAD_에이전트_플랫폼) | 2026.09~ · 1인 개발 (AI 코딩 에이전트 협업) | 결정적 단계 파이프라인, Outbox·Fencing, Artifact Resolver, GitOps | 단일 에이전트 → 다중 서비스 운영 플랫폼으로 확장 |
+| 10 | [MSDF 데이터 중심 서비스 연결 프레임워크](./10_MSDF_데이터중심_서비스연결_프레임워크) | 2026.11~ · 개인 오픈소스 (AI 코딩 에이전트 협업) | 데이터 중심 DAG, 결정적 ID 캐시, ast 정적 분석, IAM, Vue Flow | [오픈소스 공개](https://github.com/funpinbo/MSDF) 0.1 → 0.2, 테스트 139개 |
 
 ---
 
@@ -40,6 +41,7 @@ flowchart LR
     G --> I[08 사내 교육<br/>조직에 AI를 전파]
     G --> J[09 PAD 에이전트 플랫폼<br/>다중 서비스 운영]
     H --> J
+    J --> K[10 MSDF<br/>오케스트레이션을 프레임워크로]
 ```
 
 ---
@@ -58,6 +60,8 @@ flowchart LR
 | **사고는 규칙과 검사기로 남긴다** | 09 타임존 · 라벨 누락 사고 | 09 CronJob 표준 린터 |
 | **큰 전환은 관찰부터, 안전망은 따로 걷어낸다** | 09 Control Plane shadow 모드 | 09 strict 전환 운영 사고 → 회귀 테스트 |
 | **"없음"을 가짜 값으로 표현하지 않는다** | 09 가짜 유사도 1.0 | 09 턴 시작 state 리셋 |
+| **흐름의 기준을 task가 아닌 데이터로 둔다** | 09 Artifact Resolver | 10 결과물 이름만 요청하는 `order()` |
+| **식별자를 잘 정하면 기능이 따라온다** | 10 결정적 데이터 ID | 10 캐시 · 부분 재계산 · 중복 제거 · 계보 |
 
 ---
 
@@ -68,8 +72,9 @@ flowchart LR
 | Language | Python 3.10+ (asyncio, mypy strict, Pydantic v2) |
 | LLM / Agent | LangGraph, ReAct, Ollama(KANANA 1.5 8B), Gemini 2.5 Flash, qwen 계열, GPT-OSS-120B, LoRA |
 | Retrieval | FAISS, BM25, Elasticsearch(Nori), RRF, Embedding 클러스터링 |
-| Data / DB | PostgreSQL(스키마 격리), TimescaleDB, pgvector, Apache AGE(Graph), Redis, JSON Schema |
+| Data / DB | PostgreSQL(스키마 격리), SQLite(WAL), TimescaleDB, pgvector, Apache AGE(Graph), Redis, JSON Schema |
 | ML / DL | CatBoost, PatchTST, BSTS(orbit-ml), LoRA |
+| Frontend | Vue 3, Vue Flow, Server-Sent Events |
 | Infra / API | FastAPI, APScheduler, WebSocket, KIS / Naver / FRED API, Kubernetes, Jenkins, ArgoCD(GitOps), Sealed Secrets |
 | Model Serving | vLLM 기반 로컬 모델 서빙 (오픈 웨이트 LLM · VLM · OCR · 임베딩 모델) |
 | Observability | Loki, Prometheus, Grafana Alloy, Arize Phoenix(OTel) |
