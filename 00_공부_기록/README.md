@@ -9,7 +9,7 @@
 
 | # | 주제 | 왜 공부하나 | 글 |
 |---|---|---|---|
-| 01 | [내 컴퓨터로 AGENT 개발하기](./01_내_컴퓨터로_AGENT_개발하기) | 실무에서 해 온 로컬 LLM 서빙 · 에이전트 개발을, LLM을 모르는 사람도 따라올 수 있게 처음부터 정리 | 5편 (연재 중) |
+| 01 | [내 컴퓨터로 AGENT 개발하기](./01_내_컴퓨터로_AGENT_개발하기) | 실무에서 해 온 로컬 LLM 서빙 · 에이전트 개발을, LLM을 모르는 사람도 따라올 수 있게 처음부터 정리 | 6편 (연재 중) · [예시 코드](https://github.com/funpinbo/local-agent_example1) |
 | 02 | [논문 리뷰](./02_논문_리뷰) | 시리즈 각 장의 바탕이 되는 논문을 골라 풀어서 읽기 | PagedAttention 3편, CoALA 1편 (진행 중) |
 | 03 | [AWS MLA](./03_AWS_MLA) | 사내 로컬 서버에서 하던 일을 클라우드에서는 어떻게 설계 · 운영하는지. 2026.12.23 AWS Certified Machine Learning Engineer – Associate 시험 목표 | 4편 (진행 중) |
 
@@ -21,6 +21,7 @@
 | PagedAttention · KV cache · Continuous Batching | 같은 GPU에서 동시 요청을 얼마나 받을 수 있는지 판단하는 기준 |
 | Deterministic Code와 LLM 의사결정의 분리 | [06. 문서 AGENT](../06_문서형식유지_작성AGENT)의 Content / Layout 분리, [09](../09_PAD_에이전트_플랫폼)의 결정적 단계 |
 | LangGraph State · Checkpointer | [09](../09_PAD_에이전트_플랫폼/12_턴_사이_State_누수)의 턴 사이 State 누수 |
+| Single Agent 설계별 실패 → 판단을 코드로 옮기기(Retry / Fallback / Stop), 행동 공간 줄이기 | [09](../09_PAD_에이전트_플랫폼)의 결정적 단계 파이프라인, "LLM은 판정하지 않는다" |
 | 데이터 형식(Parquet 등) · 저장소 선택 | [10. MSDF](../10_MSDF_데이터중심_서비스연결_프레임워크)의 DataFrame Parquet 저장, Resolver 설계 |
 
 ## 쓰는 방식
